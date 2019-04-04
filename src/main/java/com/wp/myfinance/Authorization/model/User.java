@@ -1,45 +1,52 @@
 package com.wp.myfinance.Authorization.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email")
-})
+//
+//@Entity
+//@Table(name = "users", uniqueConstraints = {
+//        @UniqueConstraint(columnNames = "email")
+//})
+@Document(collection = "user")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    @Column(nullable = false)
+
+    @Id
+    private String id;
+    //@Field
     private String name;
 
-    @Email
-    @Column(nullable = false)
+  //  @Email
+  //  @Column(nullable = false)
     private String email;
 
     private String imageUrl;
 
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private Boolean emailVerified = false;
 
     @JsonIgnore
     private String password;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
+   // @NotNull
+   // @Enumerated(EnumType.STRING)
     private AuthProvider provider;
 
     private String providerId;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
