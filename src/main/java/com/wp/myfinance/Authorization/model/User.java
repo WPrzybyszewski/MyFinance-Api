@@ -17,14 +17,11 @@ public class User {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
-
-
     @Id
     private String id;
     //@Field
     private String name;
-
-  //  @Email
+    //  @Email
   //  @Column(nullable = false)
     private String email;
 
@@ -105,4 +102,5 @@ public class User {
     public void setProviderId(String providerId) {
         this.providerId = providerId;
     }
+
 }

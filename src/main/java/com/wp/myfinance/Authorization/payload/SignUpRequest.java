@@ -10,13 +10,15 @@ import javax.validation.constraints.NotBlank;
 public class SignUpRequest {
     @NotBlank
     private String name;
+    @NotBlank
+    private String surname;
+    @NotBlank
+    private String address;
 
     @NotBlank
     @Email
     private String email;
 
-    @NotBlank
-    private String password;
 
     public String getName() {
         return name;
@@ -34,11 +36,19 @@ public class SignUpRequest {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
